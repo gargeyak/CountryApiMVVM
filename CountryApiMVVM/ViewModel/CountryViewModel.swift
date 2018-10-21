@@ -33,7 +33,9 @@ class CountryViewModel:NSObject, UITableViewDataSource, UITableViewDelegate{
         let dict = countryArr[indexPath.row]
         cell?.countryNameLbl?.text = dict.Name
         cell?.regionLbl?.text = dict.Region
-        cell?.flagImgView.sd_setImage(with: URL(string: dict.FlagPng))
+        DispatchQueue.main.async {
+            cell?.flagImgView.sd_setImage(with: URL(string: dict.FlagPng))
+        }
         
 //        DispatchQueue.global().async {
 //            if let imageUrl = URL(string: dict.FlagPng){
